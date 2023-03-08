@@ -6,7 +6,6 @@ export const useTextAnimation = (
   intervalPerLetter: number
 ) => {
   const [text, setText] = useState(initialText)
-  const originalText = useRef(initialText)
   const letters = useRef('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
   const count = useRef(0)
 
@@ -20,7 +19,7 @@ export const useTextAnimation = (
             }
 
             if (index + 1 < count.current) {
-              return originalText.current[index]
+              return initialText[index]
             }
 
             return letters.current[Math.floor(Math.random() * 26)]
